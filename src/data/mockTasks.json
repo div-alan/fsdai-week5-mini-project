@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "Laundry",
+    "description": "do your laundry bitch",
+    "status": "in progress",
+    "dueDate": "2026-11-10",
+    "userId": 1,
+    "notes": ""
+  },
+
+  {
+    "id": 2,
+    "title": "Meal plan",
+    "description": "chicken, sweet potato all day",
+    "status": "open",
+    "dueDate": "2026-11-12",
+    "userId": 1,
+    "notes": "jefjefjbekfjb"
+  },
+
+  {
+    "id": 3,
+    "title": "Pay bills",
+    "description": "thats why u need to work",
+    "status": "done",
+    "dueDate": "2026-11-10",
+    "userId": 1,
+    "notes": ""
+  },
+
+  {
+    "id": 4,
+    "title": "Gym workout",
+    "description": "get your lazy ass up",
+    "status": "open",
+    "dueDate": "2026-11-10",
+    "userId": 1,
+    "notes": ""
+  }
+]
