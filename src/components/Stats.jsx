@@ -1,12 +1,15 @@
 import { useQuery } from"@tanstack/react-query"
 import PageLayout from "./PageLayout"
 
+const PUBLIC_API_URL = "https://jsonplaceholder.typicode.com/todos"
+
 async function fetchTasks() {
-    const response = await fetch (`https://jsonplaceholder.typicode.com/todos`)
+    const response = await fetch (PUBLIC_API_URL)
     if (!response.ok) throw new Error (`API responded ${response.status}`)
     
     return response.json()
 }
+
 
 function Stats() {
     const { data: tasks = [], isLoading, isError } = useQuery({
@@ -16,11 +19,28 @@ function Stats() {
         retry: false,
     })
 
-    if (isLoading) return <p> Loading stats...</p>
-    if (isError) {
-        return <p role="alert"> Something went wrong loading stats. Please try again</p>
+    if (isLoading) {
+        return (
+            <PageLayout title="Overview" activePage="stats">
+                <p role="status" className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6 text-[#59634A]"> Loading stats...</p>
+            </PageLayout>
+        );
     }
-    if (tasks.length === 0) return <p>No tasks yet.</p>
+    if (isError) {
+        return (
+        <PageLayout title="Overview" activePage="stats">
+            <p role="alert" className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6 text-[#59634A]"> Something went wrong loading stats. Please try again</p>
+        </PageLayout>
+        )
+    }
+    if (tasks.length === 0) {
+        return (
+            <PageLayout title="Overview" activePage="stats">
+                <p className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6 text-[#59634A]">No tasks yet.</p>
+            </PageLayout>
+        )
+    }
+        
 
     const totalTasks = tasks.length
     const completedTasks = tasks.filter((task) => task.completed).length

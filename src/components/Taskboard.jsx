@@ -20,7 +20,6 @@ function Taskboard() {
     const { data: tasks = [], isLoading, isError } = useQuery({
         queryKey: ['tasks'],
         queryFn: fetchTasks,
-        staleTime: 1000 * 20,
         retry: false,
     })
 
@@ -28,11 +27,27 @@ function Taskboard() {
     const [statusFilter, setStatusFilter] = useState("all");
     const [userFilter, setUserFilter] = useState("all");
 
-    if (isLoading) return <p> Loading tasks...</p>
-    if (isError) {
-        return <p role="alert"> Something went wrong loading tasks. Please try again</p>
+    if (isLoading) {
+        return (
+            <PageLayout title="Taskboard" activePage="tasks">
+                <p role="status" className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6 text-[#59634A]"> Loading tasks...</p>
+            </PageLayout>
+        );
     }
-    if (tasks.length === 0) return <p>No tasks yet.</p>
+    if (isError) {
+        return (
+            <PageLayout title="Taskboard" activePage="tasks">
+                <p role="alert" className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6 text-[#59634A]"> Something went wrong loading tasks. Please try again</p>
+            </PageLayout>
+        )
+    }
+    if (tasks.length === 0) {
+        return (
+            <PageLayout title="Taskboard" activePage="tasks">
+                <p className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6 text-[#59634A]">No tasks yet.</p>
+            </PageLayout>
+        )
+    }
 
 
     const filteredTasks = tasks.filter((task) => {
