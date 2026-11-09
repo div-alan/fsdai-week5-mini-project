@@ -27,8 +27,9 @@ function TaskDescription() {
     })
 
   return (
-    <PageLayout title="Task details"  showNav={false}>
+    <PageLayout showNav={false}>
         <Link to="/" className="mb-6 inline-block text-[#59634A]">← Back to list</Link>
+        <h1 className="mb-6 text-3xl font-bold">Task details</h1>
         {isLoading && <p>Loading task...</p>}
         {isError && (
             <p role="alert">Something went wrong loading this task. Please try again.</p>
@@ -36,6 +37,7 @@ function TaskDescription() {
         {isSuccess && !task && <p>Task not found.</p>}
         {task && (
             <article className="rounded-xl border border-[#E8DDCC] bg-[#FFFCF7] p-6">
+                <p className="mb-2 text-sm font-semibold text-[#59634A]">Task {task.id}</p>
                 <h2 className="mb-4 text-2xl font-semibold">{task.title}</h2>
                 <p className={`shrink-0 rounded-full px-3 py-1 text-center text-sm font-semibold inline-block
                     ${
