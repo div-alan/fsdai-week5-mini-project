@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import mockTasks from "../data/mockTasks.json";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query"
 import TaskFilters from "./TaskFilters.jsx";
@@ -21,7 +20,7 @@ function Taskboard() {
     const { data: tasks = [], isLoading, isError } = useQuery({
         queryKey: ['tasks'],
         queryFn: fetchTasks,
-        //staleTime: 1000 * 20,
+        staleTime: 1000 * 20,
         retry: false,
     })
 
