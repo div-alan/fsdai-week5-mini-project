@@ -29,6 +29,23 @@ A responsive task dashboard for browsing, searching, and filtering tasks from JS
 
 ![Individual task details](screenshots/task-details.png)
 
+### UI states
+
+#### Loading
+![Loading tasks](screenshots/loading.png)
+
+#### Error
+![Task request failed](screenshots/error.png)
+
+#### Empty API response
+![No tasks available](screenshots/empty.png)
+
+#### No matching search or filters
+![No matching tasks](screenshots/no-match.png)
+
+#### Task not found
+![Task not found](screenshots/task-not-found.png)
+
 ## Setup
 
 Install Node.js and npm before running the project.
