@@ -48,7 +48,12 @@ function TaskDescription() {
                 >
                     {task.completed ? "Completed" : "Pending"}
                 </p>
-                <p className="mt-6 border-t border-[#E8DDCC] pt-4">Assigned user: User {task.userId}</p>
+                <p className="mt-6 flex items-center gap-3 border-t border-[#E8DDCC] pt-4">
+                    <span className="text-sm text-[#66513F]">Assigned user</span>
+                    <span className="rounded-full bg-[#E8DDCC] px-3 py-1 text-sm font-semibold text-[#66513F]">
+                        User {task.userId}
+                    </span>
+                </p>
             </article>
         )}
 
